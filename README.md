@@ -1,7 +1,7 @@
 # Inbox Actions
  Inbox Actions for Thunderbird add convenient interactions to messages allowing users to interact with an product or service all without the user even having to open their email.
 
- **Inbox Actions** uses the [https://schema.org](schema.org) markup standard to deliver these options to the user in a direct link. 
+ **Inbox Actions** uses the [schema.org](https://schema.org) markup standard to deliver these options to the user in a direct link. 
 
  ## Roadmap
  Pull requests that build towards these objectives are greatly appricated! All roadmap items should work for both json-ld and microdata
@@ -26,7 +26,7 @@
 
 ## Installing
 ### Download
-You can download it from the [https://addons.thunderbird.net/EN-US/thunderbird/addon/inbox-actions/](thunderbird addon) store, or from the [https://github.com/SrS2225a/inbox-actions/releases](releases) page
+You can download it from the [thunderbird addon](https://addons.thunderbird.net/EN-US/thunderbird/addon/inbox-actions) store, or from the [releases](https://github.com/SrS2225a/inbox-actions/releases) page
 
 ### Build it yourself
 In the main project directory, run `npm run compile`. If successful inbox-actions.xpi will be created in /build 
