@@ -1,0 +1,47 @@
+{
+    "name": "Inbox Actions",
+    "description": "Ibox Actions add convenient interactions to messages allowing users to interact with an product or service all without the user even having to open their email.",
+    "version": "1.0.0",
+    "author": "Fenriris",
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "{06776688-583a-4fee-be98-6e256a38c1cf}",
+        "strict_min_version": "115.0"
+      }
+    },
+    "permissions": [
+      "menus",
+      "messagesRead",
+      "tabs"
+    ],
+    "message_display_action": {
+      "default_title": "Inbox Actions",
+      "type": "menu",
+      "theme_icons": [
+        {
+          "light": "icons/icon-16px-dark.png",
+          "dark": "icons/icon-16px.png",
+          "size": 16
+        },
+        {
+          "light": "icons/icon-32px-dark.png",
+          "dark": "icons/icon-32px.png",
+          "size": 32
+        },
+        {
+          "light": "icons/icon-64px-dark.png",
+          "dark": "icons/icon-64px.png",
+          "size": 64
+        }
+      ]
+    },
+    "icons": {
+        "64": "icons/icon-64px.png",
+        "32": "icons/icon-32px.png",
+        "16": "icons/icon-16px.png"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "manifest_version": 3
+  }
