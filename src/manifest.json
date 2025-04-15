@@ -1,6 +1,6 @@
 {
     "name": "Inbox Actions",
-    "description": "Ibox Actions add convenient interactions to messages allowing users to interact with an product or service all without the user even having to open their email.",
+    "description": "Inbox Actions add convenient interactions to messages allowing users to interact with an product or service all without the user even having to open their email.",
     "version": "1.0.0",
     "author": "Fenriris",
     "browser_specific_settings": {
@@ -12,8 +12,13 @@
     "permissions": [
       "menus",
       "messagesRead",
-      "tabs"
+      "tabs",
+      "storage"
     ],
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": false
+    },
     "message_display_action": {
       "default_title": "Inbox Actions",
       "type": "menu",

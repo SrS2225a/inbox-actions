@@ -20,6 +20,7 @@ Inbox Actions adds convenient interactions to your messages by detecting structu
   - [ ] Restaurant reservation
   - [ ] Ticketed event reservation
   - [ ] Import booking into calander option
+  - [ ] Export to calander option
 
 
 ## Installing

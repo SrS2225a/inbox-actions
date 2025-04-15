@@ -19,16 +19,6 @@ browser.menus.onShown.addListener(async (info, tab) => {
   }
 });
 
-browser.menus.onClicked.addListener((info) => {
-    if (actionMap.has(info.menuItemId)) {
-        const action = actionMap.get(info.menuItemId);
-        browser.tabs.create({
-            url: action.url,
-            active: true
-        });
-    }
-})
-
 browser.messageDisplay.onMessagesDisplayed.addListener(async (tab, message) => {
     browser.menus.removeAll();
     for (const msg of message.messages) {
@@ -36,6 +26,26 @@ browser.messageDisplay.onMessagesDisplayed.addListener(async (tab, message) => {
     }
     browser.menus.refresh();
 });
+
+browser.menus.onClicked.addListener((info) => {
+  if (actionMap.has(info.menuItemId)) {
+      const action = actionMap.get(info.menuItemId);
+
+      // get openPreference from storage
+      browser.storage.local.get("openPreference").then((data) => {
+          const openPreference = data.openPreference || "thunderbird"; // default to "thunderbird"
+
+          if (openPreference === "thunderbird") {
+              browser.tabs.create({
+                url: action.url,
+                active: true
+              });
+          } else {
+            browser.windows.openDefaultBrowser(action.url);
+          }
+      });
+  }
+})
 
 function findHtmlPart(part) {
   if (!part) return null;
@@ -73,7 +83,7 @@ async function getActionsFromEmail(id, tabId) {
               "32": "icons/open_link-32px.png",
               "64": "icons/open_link-64px.png",
           },
-          contexts: ["all"]
+          contexts: ["message_list", "message_display_action_menu"],
       });
     }
   } else {
