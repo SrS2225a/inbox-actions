@@ -11,6 +11,7 @@
       --accent: Highlight;
       --accent-text: HighlightText;
       --border: ActiveBorder;
+      --nav-background: AccentColor
     }
 
     html, body {
@@ -30,7 +31,7 @@
 
     .tabs {
       display: flex;
-      background: linear-gradient(to right, #514fb0 0%, transparent 100%);
+      background: linear-gradient(to right, var(--nav-background) 0%, transparent 100%);
     }
 
     .tab-button {
