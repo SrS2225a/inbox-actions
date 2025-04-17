@@ -11,7 +11,7 @@
       --accent: Highlight;
       --accent-text: HighlightText;
       --border: ActiveBorder;
-      --nav-background: AccentColor
+      --nav-backgroud: AccentColor;
     }
 
     html, body {
@@ -31,7 +31,7 @@
 
     .tabs {
       display: flex;
-      background: linear-gradient(to right, var(--nav-background) 0%, transparent 100%);
+      background: linear-gradient(to right, var(--nav-backgroud) 0%, transparent 100%);
     }
 
     .tab-button {
@@ -76,8 +76,7 @@
     }
 
     select {
-      padding: 6px 10px;
-      font-size: 1em;
+      font-size: 0.8em;
     }
 
     a {
@@ -105,6 +104,13 @@
           <option value="thunderbird">Thunderbird tab</option>
           <option value="browser">Default browser</option>
         </select>
+      </div>
+      <div class="section">
+        <h2>Notifications</h2>
+        <label for="showNotifications">
+          <input type="checkbox" id="showNotifications" />
+          Show notification after action
+        </label>
       </div>
     </div>
 
