@@ -7,7 +7,6 @@ Inbox Actions adds convenient interactions to your messages by detecting structu
 * Actions (https://developers.google.com/workspace/gmail/markup/actions/actions-overview)
   - [x] Add support for Go-To Actions
   - [x] Add support for One-Click Actions
-  - [ ] Unsubscribe option
 * Highlights (https://developers.google.com/workspace/gmail/markup/highlights)
   - [ ] Bus reservation
   - [ ] Car rental reservation
@@ -19,7 +18,7 @@ Inbox Actions adds convenient interactions to your messages by detecting structu
   - [ ] Invoice
   - [ ] Restaurant reservation
   - [ ] Ticketed event reservation
-  - [ ] Import booking into calander option
+  - [ ] Booking
   - [ ] Export to calander option
 
 
