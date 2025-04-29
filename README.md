@@ -30,7 +30,7 @@ You can download it from the [thunderbird addon](https://addons.thunderbird.net/
 In the main project directory, run `npm run compile`. If successful inbox-actions.xpi will be created in /build 
 
 ## Credits
-<a href="https://www.flaticon.com/free-icons/">Icons created by IconPai - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/">Icons from Flaticon</a>
 
 ## Donate
 Like the extension? Consider [donating](https://liberapay.com/Eris/donate) to support the development of the extension.
