@@ -21,6 +21,22 @@ Inbox Actions adds convenient interactions to your messages by detecting structu
   - [ ] Booking
   - [ ] Export to calander option
 
+## Demo
+Want to see it in action? Here's how:
+
+1. **Download a Sample Email**  
+   👉 [Click here to download a sample `.eml` file](https://media.fenriris.net/talI2/LOvEgano92.eml/raw) with structured data markup.
+
+2. **Import the Email**  
+   Open Thunderbird and drag-and-drop the downloaded `.eml` file into any folder in your mail client.
+
+3. **Open the Message**  
+   When you view the message, if the add-on is active, Inbox Actions will detect the structured markup and show actionable buttons (like “View Issue”) in the message toolbar or context menu.
+
+4. **Click the Action**  
+   Click the button to perform the action defined in the email — such as opening a GitHub issue or confirming a booking.
+
+> 💡 Make sure Inbox Actions is installed and enabled in Thunderbird for this to work.
 
 ## Installing
 ### Download
