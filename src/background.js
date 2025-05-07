@@ -11,20 +11,19 @@ browser.runtime.onMessage.addListener(async (message) => {
 browser.menus.onShown.addListener(async (info, tab) => {
     if (info.contexts.includes("message_list")) {
         browser.menus.removeAll();
-
-        for (const message of info.selectedMessages.messages) {
-          await processMessageForActions(message.id, tab.id);
-      }
+        if(info.selectedMessages && info.selectedMessages.messages.length == 1) {
+          await processMessageForActions(info.selectedMessages.messages[0].id, tab.id);
+        }
       browser.menus.refresh();
-  }
+    }
 });
 
 browser.messageDisplay.onMessagesDisplayed.addListener(async (tab, message) => {
   browser.menus.removeAll();
-    for (const msg of message.messages) {
-        await processMessageForActions(msg.id, tab.id);
-    }
-    browser.menus.refresh();
+  if(message.messages && message.messages.length == 1) {
+    await processMessageForActions(message.messages[0].id, tab.id);
+  }
+  browser.menus.refresh();
 });
 
 browser.menus.onClicked.addListener(async (info) => {
@@ -81,11 +80,12 @@ browser.menus.onClicked.addListener(async (info) => {
 });
 
 async function processMessageForActions(messageId, tabId) {
-  const full = await browser.messages.getFull(messageId);
-  const htmlPart = findHtmlPart(full);
-  if (!htmlPart) return;
+  const parts = await browser.messages.listInlineTextParts(messageId);
 
-  const actions = extractActionsFromEmail(htmlPart.body);
+  const htmlPart = parts.find(part => part.contentType === "text/html");
+  if (!htmlPart || !htmlPart.content) return;
+
+  const actions = extractActionsFromEmail(htmlPart.content);
   if (actions.length > 0) {
     messenger.messageDisplayAction.enable(tabId);
     for (const action of actions) {
@@ -107,21 +107,6 @@ async function processMessageForActions(messageId, tabId) {
   }
 }
 
-function findHtmlPart(part) {
-  if (!part) return null;
-
-  if (part.contentType === "text/html" && part.body) return part;
-
-  if (Array.isArray(part.parts)) {
-    for (const subpart of part.parts) {
-      const result = findHtmlPart(subpart);
-      if (result) return result;
-    }
-  }
-
-  return null;
-}
-
 function extractActionsFromEmail(content) {
   const doc = new DOMParser().parseFromString(content, "text/html");
   const actions = [];
@@ -130,11 +115,11 @@ function extractActionsFromEmail(content) {
     const ldJsonScript = doc.querySelector('script[type="application/ld+json"]');
     if (ldJsonScript) {
       const json = JSON.parse(ldJsonScript.textContent);
-      actions.push(...extractViewActionsFromJSONLD(json));
+      actions.push(...extractActionsFromJSONLD(json));
     }
     const microdata = doc.querySelector('[itemscope]');
     if (microdata) {
-      actions.push(...extractViewActionsFromMicrodata(doc));
+      actions.push(...extractActionsFromMicrodata(doc));
     }
   } catch (e) {
     console.error("Failed to parse structured data:", e);
@@ -143,7 +128,7 @@ function extractActionsFromEmail(content) {
   return actions;
 }
 
-function extractViewActionsFromJSONLD(json) {
+function extractActionsFromJSONLD(json) {
   const actions = [];
 
   const addAction = (action) => {
@@ -167,7 +152,7 @@ function extractViewActionsFromJSONLD(json) {
   return actions;
 }
 
-function extractViewActionsFromMicrodata(doc) {
+function extractActionsFromMicrodata(doc) {
   const actions = [];
  
   supportedTypes.forEach(type => {

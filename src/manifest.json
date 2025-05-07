@@ -1,7 +1,7 @@
 {
     "name": "Inbox Actions",
     "description": "Inbox Actions add convenient interactions to messages allowing users to interact with an product or service all without the user even having to open their email.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "author": "Fenriris",
     "browser_specific_settings": {
       "gecko": {
