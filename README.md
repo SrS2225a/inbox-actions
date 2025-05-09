@@ -1,5 +1,13 @@
 # Inbox Actions
-Inbox Actions adds convenient interactions to your messages by detecting structured data (Microdata and JSON-LD) embedded in emails. It automatically surfaces actionable items directly in Thunderbird’s interface, allowing you to interact with services or perform tasks without even opening the email.
+Inbox Actions adds convenient interactions to your messages by detecting structured data embedded in emails. It automatically surfaces actionable items directly in Thunderbird’s interface, allowing you to interact with products, services or perform tasks right inside of Thunderbird. For instance, when you receive a notification that a magazine subscription is about to expire, the notification can present the option to renew it right from the email. Actions are declared in two ways:
+
+1. In-App Actions or (One-Click Actions)
+There are many scenarios where the expected behavior from the user is to confirm a pre-defined request. For instance, when a user registers to a site, she receives an email asking her to confirm her registration. Similarly, a movie or music recommendations site could prompt a user to add items to a queue to enjoy later.
+
+2. Go-To Actions
+For more complex interactions, Go-To Actions can be used to provide a direct link to the page where the action can be performed. Clicking the button redirects the user to the page specified in the action definition.
+
+It gets these actions by looking for encoded linked data using JSON or XML. When it finds the linked data, it presents the "action" right there for you. Essentially it is just way for you to engage with an email without having to open it, or more easily.
 
  ## Roadmap
  Pull requests that build towards these objectives are greatly appricated! All roadmap items should work for both json-ld and microdata
