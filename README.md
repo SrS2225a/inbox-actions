@@ -7,7 +7,7 @@ There are many scenarios where the expected behavior from the user is to confirm
 2. Go-To Actions
 For more complex interactions, Go-To Actions can be used to provide a direct link to the page where the action can be performed. Clicking the button redirects the user to the page specified in the action definition.
 
-It gets these actions by looking for encoded linked data using JSON or XML. When it finds the linked data, it presents the "action" right there for you. Essentially it is just way for you to engage with an email without having to open it, or more easily.
+It gets these actions by looking for encoded linked data using JSON or XML. When it finds the linked data, it presents the "action" right there for you. Essentially it is just way for you to engage with an email more conveniently.
 
  ## Roadmap
  Pull requests that build towards these objectives are greatly appricated! All roadmap items should work for both json-ld and microdata
